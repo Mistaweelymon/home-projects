@@ -24,25 +24,52 @@ input,select,textarea,button{font-family:inherit;}
 ::-webkit-scrollbar-track{background:var(--surface);}
 ::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px;}
 
+/* LOGIN */
+#login-screen{position:fixed;inset:0;z-index:999;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px;}
+#login-screen.hidden{display:none;}
+.login-box{width:100%;max-width:360px;background:var(--surface);border:1px solid var(--border);border-radius:24px;padding:36px 32px;box-shadow:0 24px 80px rgba(0,0,0,.6);}
+.login-icon{font-size:48px;text-align:center;margin-bottom:16px;}
+.login-box h1{font-family:'Playfair Display',serif;font-size:26px;color:var(--bright);text-align:center;margin-bottom:6px;}
+.login-box p{font-size:13px;color:var(--muted);text-align:center;margin-bottom:28px;}
+.login-label{display:block;font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--mid);margin-bottom:6px;}
+.login-input-wrap{position:relative;margin-bottom:20px;}
+.login-input{width:100%;background:var(--bg);border:1px solid var(--border);color:var(--text);border-radius:12px;padding:13px 44px 13px 14px;font-size:15px;outline:none;transition:border-color .2s;}
+.login-input:focus{border-color:var(--accent);}
+.login-toggle{position:absolute;right:13px;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--mid);cursor:pointer;font-size:18px;padding:4px;line-height:1;}
+.login-btn{width:100%;background:linear-gradient(135deg,var(--accent),var(--accent2));border:none;color:#fff;border-radius:12px;padding:14px;font-size:15px;font-weight:700;cursor:pointer;box-shadow:0 4px 20px rgba(45,212,191,.3);transition:opacity .2s,transform .15s;}
+.login-btn:active{opacity:.85;transform:scale(.98);}
+.login-error{color:var(--red);font-size:13px;text-align:center;margin-top:14px;min-height:20px;font-weight:600;}
+.login-shake{animation:shake .4s ease;}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-6px)}80%{transform:translateX(6px)}}
+
+/* HEADER */
 #header{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,var(--surface) 0%,var(--bg) 100%);border-bottom:1px solid var(--border);padding:calc(14px + var(--sat)) 18px 0;}
 .hdr-top{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:14px;}
 .logo{display:flex;align-items:center;gap:10px;}
 .logo-icon{font-size:24px;}
 .logo h1{font-family:'Playfair Display',serif;font-size:22px;color:var(--bright);letter-spacing:-0.02em;line-height:1;}
 .logo p{font-size:11px;color:var(--muted);margin-top:2px;}
-.btn-add{background:linear-gradient(135deg,var(--accent),var(--accent2));border:none;color:#fff;border-radius:12px;padding:10px 18px;cursor:pointer;font-weight:700;font-size:14px;display:flex;align-items:center;gap:6px;box-shadow:0 4px 16px rgba(45,212,191,.3);white-space:nowrap;flex-shrink:0;-webkit-tap-highlight-color:transparent;transition:opacity .15s,transform .15s;}
+.hdr-right{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.btn-add{background:linear-gradient(135deg,var(--accent),var(--accent2));border:none;color:#fff;border-radius:12px;padding:10px 16px;cursor:pointer;font-weight:700;font-size:13px;display:flex;align-items:center;gap:6px;box-shadow:0 4px 16px rgba(45,212,191,.3);white-space:nowrap;flex-shrink:0;-webkit-tap-highlight-color:transparent;transition:opacity .15s,transform .15s;}
 .btn-add:active{opacity:.85;transform:scale(.97);}
+.btn-add-purchase{background:linear-gradient(135deg,#f59e0b,#f97316);border:none;color:#fff;border-radius:12px;padding:10px 16px;cursor:pointer;font-weight:700;font-size:13px;display:flex;align-items:center;gap:6px;box-shadow:0 4px 16px rgba(245,158,11,.3);white-space:nowrap;flex-shrink:0;-webkit-tap-highlight-color:transparent;transition:opacity .15s,transform .15s;}
+.btn-add-purchase:active{opacity:.85;transform:scale(.97);}
+.btn-logout{background:none;border:1px solid var(--border);color:var(--mid);border-radius:10px;padding:9px 12px;cursor:pointer;font-size:12px;font-weight:600;white-space:nowrap;transition:border-color .2s,color .2s;}
+.btn-logout:hover{border-color:var(--red);color:var(--red);}
 
-.stats{display:flex;gap:20px;overflow-x:auto;padding-bottom:14px;scrollbar-width:none;}
+/* STATS */
+.stats{display:flex;gap:18px;overflow-x:auto;padding-bottom:14px;scrollbar-width:none;}
 .stats::-webkit-scrollbar{display:none;}
-.stat{flex-shrink:0;border-bottom:2px solid;padding-bottom:8px;min-width:75px;}
-.stat-val{font-size:18px;font-weight:700;}
+.stat{flex-shrink:0;border-bottom:2px solid;padding-bottom:8px;min-width:72px;}
+.stat-val{font-size:17px;font-weight:700;}
 .stat-label{font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-top:2px;}
 
+/* TABS */
 .tabs{display:flex;margin-top:16px;}
 .tab-btn{background:none;border:none;border-bottom:2px solid transparent;color:var(--muted);padding:8px 16px;cursor:pointer;font-weight:700;font-size:13px;letter-spacing:.04em;transition:all .2s;-webkit-tap-highlight-color:transparent;}
 .tab-btn.active{border-bottom-color:var(--accent);color:var(--accent);}
 
+/* FILTERS */
 #filters{background:var(--surface2);border-bottom:1px solid var(--border);padding:12px 18px;}
 .filter-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
 .f-input{background:var(--surface);border:1px solid var(--border);color:var(--text);border-radius:10px;padding:8px 10px;font-size:12px;outline:none;min-width:0;flex:1;}
@@ -51,6 +78,7 @@ input,select,textarea,button{font-family:inherit;}
 
 #main{padding:20px 18px;max-width:1400px;margin:0 auto;}
 
+/* BOARD */
 .board{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:18px;}
 .board-col-title{display:flex;align-items:center;gap:8px;margin-bottom:10px;padding-bottom:8px;border-bottom:2px solid;}
 .col-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
@@ -59,6 +87,7 @@ input,select,textarea,button{font-family:inherit;}
 .col-cards{display:flex;flex-direction:column;gap:10px;}
 .no-cards{text-align:center;color:var(--border);font-size:12px;padding:20px;border:1px dashed var(--border);border-radius:12px;}
 
+/* PROJECT CARD */
 .card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:15px;cursor:pointer;transition:border-color .2s,transform .15s;border-left:3px solid;}
 .card:active{transform:scale(.98);}
 .card-header{display:flex;gap:8px;align-items:flex-start;margin-bottom:10px;}
@@ -70,7 +99,9 @@ input,select,textarea,button{font-family:inherit;}
 .card-date{font-size:11px;color:var(--muted);margin-top:5px;}
 .card-tags{margin-top:7px;display:flex;gap:4px;flex-wrap:wrap;}
 .tag{background:var(--border);color:#4a7fa5;font-size:10px;padding:2px 7px;border-radius:999px;}
+.card-purchases{margin-top:7px;font-size:11px;color:var(--green);font-weight:600;}
 
+/* LIST */
 .list{display:flex;flex-direction:column;gap:7px;}
 .list-row{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:13px 16px;cursor:pointer;display:flex;align-items:center;gap:12px;transition:border-color .2s;border-left:3px solid;}
 .list-row:active{opacity:.85;}
@@ -80,16 +111,37 @@ input,select,textarea,button{font-family:inherit;}
 .list-sub{font-size:11px;color:var(--muted);margin-top:2px;}
 .list-meta{display:flex;gap:8px;align-items:center;flex-shrink:0;flex-wrap:wrap;justify-content:flex-end;}
 
+/* PURCHASES TABLE */
+.purchases-wrap{background:var(--surface);border:1px solid var(--border);border-radius:16px;overflow:hidden;}
+.purchases-header{display:grid;grid-template-columns:1fr 120px 100px 120px 100px 44px;gap:0;background:var(--surface2);border-bottom:1px solid var(--border);padding:10px 16px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mid);}
+.purchase-row{display:grid;grid-template-columns:1fr 120px 100px 120px 100px 44px;gap:0;padding:12px 16px;border-bottom:1px solid var(--border);align-items:center;cursor:pointer;transition:background .15s;}
+.purchase-row:last-child{border-bottom:none;}
+.purchase-row:hover{background:var(--surface2);}
+.purchase-row:active{opacity:.85;}
+.pr-name{font-weight:600;font-size:13px;color:var(--bright);}
+.pr-sub{font-size:11px;color:var(--muted);margin-top:2px;}
+.pr-cell{font-size:12px;color:var(--text);}
+.pr-cost{font-size:13px;color:var(--yellow);font-weight:700;}
+.pr-edit{background:none;border:1px solid var(--border);color:var(--mid);border-radius:8px;padding:5px 8px;cursor:pointer;font-size:12px;transition:border-color .2s,color .2s;}
+.pr-edit:hover{border-color:var(--accent);color:var(--accent);}
+.purchases-empty{text-align:center;padding:48px 20px;color:var(--muted);}
+.purchases-empty .e-icon{font-size:36px;margin-bottom:12px;}
+.purchases-footer{padding:12px 16px;background:var(--surface2);border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;font-size:13px;}
+.purchases-total{font-weight:700;color:var(--yellow);}
+
+/* BADGE */
 .badge{border-radius:999px;padding:2px 10px;font-size:11px;font-weight:700;letter-spacing:.04em;white-space:nowrap;}
 
+/* EMPTY STATE */
 .empty-state{text-align:center;padding:60px 20px;color:var(--muted);}
 .empty-state .e-icon{font-size:48px;margin-bottom:16px;}
 .empty-state h3{font-family:'Playfair Display',serif;font-size:20px;color:var(--mid);margin-bottom:8px;}
 .empty-state p{font-size:14px;}
 
-#modal-overlay{display:none;position:fixed;inset:0;z-index:100;background:rgba(10,14,23,.85);backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:16px;}
-#modal-overlay.open{display:flex;}
-#modal-box{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:28px;width:100%;max-width:620px;max-height:90vh;overflow-y:auto;box-shadow:0 24px 80px rgba(0,0,0,.6);}
+/* MODAL */
+#modal-overlay,#purchase-overlay{display:none;position:fixed;inset:0;z-index:100;background:rgba(10,14,23,.85);backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:16px;}
+#modal-overlay.open,#purchase-overlay.open{display:flex;}
+#modal-box,#purchase-box{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:28px;width:100%;max-width:620px;max-height:90vh;overflow-y:auto;box-shadow:0 24px 80px rgba(0,0,0,.6);}
 .modal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;}
 .modal-head h2{font-family:'Playfair Display',serif;font-size:21px;color:var(--bright);}
 .modal-close{background:none;border:none;color:var(--mid);cursor:pointer;font-size:22px;line-height:1;padding:4px;}
@@ -105,25 +157,41 @@ textarea.f-field{resize:vertical;line-height:1.5;}
 .btn-delete{background:#ef444422;border:1px solid #ef444455;color:var(--red);border-radius:10px;padding:10px 16px;cursor:pointer;font-weight:600;font-size:13px;}
 .btn-cancel{background:none;border:1px solid var(--border);color:var(--mid);border-radius:10px;padding:10px 16px;cursor:pointer;font-weight:600;font-size:13px;}
 .btn-save{background:linear-gradient(135deg,var(--accent),var(--accent2));border:none;color:#fff;border-radius:10px;padding:10px 22px;cursor:pointer;font-weight:700;font-size:13px;box-shadow:0 4px 16px rgba(45,212,191,.25);}
+.btn-save-purchase{background:linear-gradient(135deg,#f59e0b,#f97316);border:none;color:#fff;border-radius:10px;padding:10px 22px;cursor:pointer;font-weight:700;font-size:13px;box-shadow:0 4px 16px rgba(245,158,11,.25);}
 .modal-actions-right{display:flex;gap:8px;margin-left:auto;}
 
-#toast{position:fixed;bottom:calc(24px + var(--sab));left:50%;transform:translateX(-50%) translateY(20px);background:#1e2d45;border:1px solid var(--accent);color:var(--bright);padding:10px 20px;border-radius:12px;font-size:13px;font-weight:600;opacity:0;transition:all .3s;z-index:200;white-space:nowrap;pointer-events:none;}
+/* SECTION DIVIDER */
+.section-divider{display:flex;align-items:center;gap:12px;margin:4px 0;}
+.section-divider span{font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--accent);white-space:nowrap;}
+.section-divider::before,.section-divider::after{content:'';flex:1;height:1px;background:var(--border);}
+
+/* TOAST */
+#toast{position:fixed;bottom:calc(24px + var(--sab));left:50%;transform:translateX(-50%) translateY(20px);background:#1e2d45;border:1px solid var(--accent);color:var(--bright);padding:10px 20px;border-radius:12px;font-size:13px;font-weight:600;opacity:0;transition:all .3s;z-index:500;white-space:nowrap;pointer-events:none;}
 #toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
 
-#loader{display:none;position:fixed;inset:0;z-index:300;background:var(--bg);flex-direction:column;align-items:center;justify-content:center;gap:16px;}
+/* LOADER */
+#loader{display:none;position:fixed;inset:0;z-index:600;background:var(--bg);flex-direction:column;align-items:center;justify-content:center;gap:16px;}
 #loader.on{display:flex;}
 .loader-spin{font-size:48px;animation:spin 2s linear infinite;}
 @keyframes spin{to{transform:rotate(360deg);}}
 .loader-text{color:var(--muted);font-size:14px;}
 
-#sync-bar{height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));position:fixed;top:0;left:0;z-index:400;}
+/* SYNC BAR */
+#sync-bar{height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));position:fixed;top:0;left:0;z-index:700;width:0;}
 #sync-bar.loading{animation:syncanim 1.4s ease-in-out infinite;}
 @keyframes syncanim{0%{width:0;left:0;}50%{width:60%;left:20%;}100%{width:0;left:100%;}}
 
-@media(max-width:480px){
+#app{display:none;}
+#app.visible{display:block;}
+
+@media(max-width:600px){
   .form-row.col3{grid-template-columns:1fr 1fr;}
   .form-row.col2{grid-template-columns:1fr;}
   .list-meta{display:none;}
+  .purchases-header{grid-template-columns:1fr 90px 80px 44px;}
+  .purchase-row{grid-template-columns:1fr 90px 80px 44px;}
+  .ph-project,.ph-who,.pr-project,.pr-who{display:none;}
+  .login-box{padding:28px 20px;}
 }
 </style>
 </head>
@@ -133,42 +201,74 @@ textarea.f-field{resize:vertical;line-height:1.5;}
 <div id="loader" class="on"><div class="loader-spin">🏡</div><div class="loader-text">Loading your projects…</div></div>
 <div id="toast"></div>
 
-<div id="header">
-  <div class="hdr-top">
-    <div class="logo">
-      <div class="logo-icon">🏡</div>
-      <div><h1>Our Home Projects</h1><p>Track &amp; plan every project together</p></div>
+<!-- LOGIN -->
+<div id="login-screen">
+  <div class="login-box">
+    <div class="login-icon">🏡</div>
+    <h1>Our Home Projects</h1>
+    <p>Enter your password to continue</p>
+    <label class="login-label">Password</label>
+    <div class="login-input-wrap">
+      <input class="login-input" id="login-pw" type="password" placeholder="Enter password…" onkeydown="if(event.key==='Enter')doLogin()"/>
+      <button class="login-toggle" onclick="togglePw()">👁</button>
     </div>
-    <button class="btn-add" onclick="openModal()">＋ Add Project</button>
-  </div>
-  <div class="stats" id="stats-bar"></div>
-  <div class="tabs">
-    <button class="tab-btn active" onclick="setView('board',this)">📋 Board</button>
-    <button class="tab-btn" onclick="setView('list',this)">📄 List</button>
+    <button class="login-btn" onclick="doLogin()">Unlock App 🔓</button>
+    <div class="login-error" id="login-error"></div>
   </div>
 </div>
 
-<div id="filters">
-  <div class="filter-row">
-    <input class="f-input" id="f-search" placeholder="🔍 Search…" oninput="render()" style="min-width:110px;max-width:180px;"/>
-    <select class="f-input" id="f-status" onchange="render()"><option value="">Status: All</option></select>
-    <select class="f-input" id="f-category" onchange="render()"><option value="">Category: All</option></select>
-    <select class="f-input" id="f-room" onchange="render()"><option value="">Room: All</option></select>
-    <select class="f-input" id="f-priority" onchange="render()"><option value="">Priority: All</option></select>
-    <select class="f-input" id="f-assigned" onchange="render()"><option value="">Who: All</option></select>
-    <select class="f-input" id="f-sort" onchange="render()" style="max-width:130px;">
-      <option value="priority">Sort: Priority</option>
-      <option value="status">Sort: Status</option>
-      <option value="cost">Sort: Cost ↓</option>
-      <option value="date">Sort: Date</option>
-      <option value="title">Sort: A–Z</option>
-    </select>
-    <span class="f-count" id="f-count"></span>
+<!-- APP -->
+<div id="app">
+  <div id="header">
+    <div class="hdr-top">
+      <div class="logo">
+        <div class="logo-icon">🏡</div>
+        <div><h1>Our Home Projects</h1><p>Track &amp; plan every project together</p></div>
+      </div>
+      <div class="hdr-right">
+        <button class="btn-logout" onclick="doLogout()">🔒 Lock</button>
+        <button class="btn-add-purchase" id="btn-add-purchase" style="display:none" onclick="openPurchaseModal()">🛒 Add Purchase</button>
+        <button class="btn-add" id="btn-add-project" onclick="openModal()">＋ Add Project</button>
+      </div>
+    </div>
+    <div class="stats" id="stats-bar"></div>
+    <div class="tabs">
+      <button class="tab-btn active" id="tab-board" onclick="setView('board',this)">📋 Board</button>
+      <button class="tab-btn" id="tab-list" onclick="setView('list',this)">📄 List</button>
+      <button class="tab-btn" id="tab-purchases" onclick="setView('purchases',this)">🛒 Purchases</button>
+    </div>
   </div>
+
+  <div id="filters">
+    <div class="filter-row" id="project-filters">
+      <input class="f-input" id="f-search" placeholder="🔍 Search…" oninput="render()" style="min-width:110px;max-width:180px;"/>
+      <select class="f-input" id="f-status" onchange="render()"><option value="">Status: All</option></select>
+      <select class="f-input" id="f-category" onchange="render()"><option value="">Category: All</option></select>
+      <select class="f-input" id="f-room" onchange="render()"><option value="">Room: All</option></select>
+      <select class="f-input" id="f-priority" onchange="render()"><option value="">Priority: All</option></select>
+      <select class="f-input" id="f-assigned" onchange="render()"><option value="">Who: All</option></select>
+      <select class="f-input" id="f-sort" onchange="render()" style="max-width:130px;">
+        <option value="priority">Sort: Priority</option>
+        <option value="status">Sort: Status</option>
+        <option value="cost">Sort: Cost ↓</option>
+        <option value="date">Sort: Date</option>
+        <option value="title">Sort: A–Z</option>
+      </select>
+      <span class="f-count" id="f-count"></span>
+    </div>
+    <div class="filter-row" id="purchase-filters" style="display:none">
+      <input class="f-input" id="fp-search" placeholder="🔍 Search purchases…" oninput="renderPurchases()" style="min-width:130px;max-width:200px;"/>
+      <select class="f-input" id="fp-type" onchange="renderPurchases()"><option value="">Type: All</option></select>
+      <select class="f-input" id="fp-who" onchange="renderPurchases()"><option value="">Who: All</option></select>
+      <select class="f-input" id="fp-project" onchange="renderPurchases()"><option value="">Project: All</option></select>
+      <span class="f-count" id="fp-count"></span>
+    </div>
+  </div>
+
+  <div id="main"></div>
 </div>
 
-<div id="main"></div>
-
+<!-- PROJECT MODAL -->
 <div id="modal-overlay" onclick="overlayClick(event)">
   <div id="modal-box">
     <div class="modal-head">
@@ -224,190 +324,266 @@ textarea.f-field{resize:vertical;line-height:1.5;}
   </div>
 </div>
 
+<!-- PURCHASE MODAL -->
+<div id="purchase-overlay" onclick="purchaseOverlayClick(event)">
+  <div id="purchase-box">
+    <div class="modal-head">
+      <h2 id="purchase-modal-title">Log Purchase</h2>
+      <button class="modal-close" onclick="closePurchaseModal()">✕</button>
+    </div>
+    <div class="form-grid">
+      <div>
+        <label class="f-label">Item Name *</label>
+        <input class="f-field" id="p-name" placeholder="e.g. DeWalt Drill, Paint Brushes, 2x4 Lumber…"/>
+      </div>
+      <div class="form-row col2">
+        <div>
+          <label class="f-label">Type / Category</label>
+          <select class="f-field" id="p-type"></select>
+        </div>
+        <div>
+          <label class="f-label">Purchased By</label>
+          <select class="f-field" id="p-who"></select>
+        </div>
+      </div>
+      <div class="form-row col2">
+        <div>
+          <label class="f-label">Amount Paid ($) *</label>
+          <input class="f-field" type="number" id="p-cost" placeholder="0.00"/>
+        </div>
+        <div>
+          <label class="f-label">Date Purchased</label>
+          <input class="f-field" type="date" id="p-date"/>
+        </div>
+      </div>
+      <div>
+        <label class="f-label">Linked Project (optional)</label>
+        <select class="f-field" id="p-project"></select>
+      </div>
+      <div>
+        <label class="f-label">Store / Retailer</label>
+        <input class="f-field" id="p-store" placeholder="e.g. Home Depot, Lowe's, Amazon…"/>
+      </div>
+      <div>
+        <label class="f-label">Notes</label>
+        <textarea class="f-field" id="p-notes" rows="2" placeholder="Receipt #, return policy, model number…"></textarea>
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn-delete" id="p-btn-delete" style="display:none" onclick="deletePurchase()">Delete</button>
+      <div class="modal-actions-right">
+        <button class="btn-cancel" onclick="closePurchaseModal()">Cancel</button>
+        <button class="btn-save-purchase" onclick="savePurchase()">Save Purchase</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
+// ── SECURITY ──────────────────────────────────────────────
+const APP_PASSWORD = "HenryBindi6624$";
+const API_SECRET   = "hp_9f3kL2mX8vQw4nR7tZ1bY6cJ0sP5dA";
 const API = "https://script.google.com/macros/s/AKfycbxMLv8ME6rq51gK6OutSiO6cgIL7T9vF5l0b2NTj7aAccpn4iPhKNQZi5deFoYT7i5SKg/exec";
 
-const CATEGORIES = ["Repair","Remodel","Upgrade","Maintenance","Landscaping","Seasonal","Safety"];
-const ROOMS = ["Kitchen","Living Room","Primary Bedroom","Bedroom","Bathroom","Basement","Garage","Attic","Front Yard","Backyard","Patio/Deck","Exterior","Other"];
-const PRIORITIES = ["Urgent","High","Medium","Low"];
-const STATUSES = ["Not Started","In Progress","Waiting on Parts","Hired Out","Done"];
-const ASSIGNED = ["Me","Partner","Both","Contractor"];
+// ── CONSTANTS ─────────────────────────────────────────────
+const CATEGORIES  = ["Repair","Remodel","Upgrade","Maintenance","Landscaping","Seasonal","Safety"];
+const ROOMS       = ["Kitchen","Living Room","Primary Bedroom","Bedroom","Bathroom","Basement","Garage","Attic","Front Yard","Backyard","Patio/Deck","Exterior","Other"];
+const PRIORITIES  = ["Urgent","High","Medium","Low"];
+const STATUSES    = ["Not Started","In Progress","Waiting on Parts","Hired Out","Done"];
+const ASSIGNED    = ["Adam","Bailey","Both","Contractor"];
+const PURCHASE_TYPES = ["Tool","Hardware","Lumber","Paint & Supplies","Electrical","Plumbing","Flooring","Fixtures","Appliance","Landscaping","Safety Gear","Other"];
+
 const CAT_ICONS = {Repair:"🔧",Remodel:"🏗️",Upgrade:"⚡",Maintenance:"🛠️",Landscaping:"🌿",Seasonal:"🍂",Safety:"🛡️"};
-const STATUS_COLORS = {"Not Started":"#94a3b8","In Progress":"#f59e0b","Waiting on Parts":"#8b5cf6","Hired Out":"#3b82f6","Done":"#10b981"};
+const PURCHASE_ICONS = {Tool:"🔨",Hardware:"🔩",Lumber:"🪵","Paint & Supplies":"🎨",Electrical:"⚡",Plumbing:"🚿",Flooring:"🪟",Fixtures:"💡",Appliance:"🏠",Landscaping:"🌿","Safety Gear":"🥽",Other:"📦"};
+const STATUS_COLORS   = {"Not Started":"#94a3b8","In Progress":"#f59e0b","Waiting on Parts":"#8b5cf6","Hired Out":"#3b82f6","Done":"#10b981"};
 const PRIORITY_COLORS = {"Urgent":"#ef4444","High":"#f97316","Medium":"#eab308","Low":"#6b7280"};
 
-let projects = [];
-let currentId = null;
+let projects    = [];
+let purchases   = [];
+let currentId   = null;
+let currentPurchaseId = null;
 let currentView = "board";
+let refreshTimer;
 
 const $ = id => document.getElementById(id);
-const fmt = v => (!v && v !== 0) ? "—" : "$" + Number(v).toLocaleString("en-US", {minimumFractionDigits:0, maximumFractionDigits:2});
-const fmtDate = d => { if (!d) return ""; try { return new Date(d + "T00:00:00").toLocaleDateString("en-US", {month:"short",day:"numeric",year:"numeric"}); } catch { return d; }};
-const badge = (color, text) => `<span class="badge" style="background:${color}22;color:${color};border:1px solid ${color}55">${text}</span>`;
+const fmt = v => (!v && v !== 0) ? "—" : "$" + Number(v).toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2});
+const fmtDate = d => { if(!d) return ""; try { return new Date(d+"T00:00:00").toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"}); } catch { return d; }};
+const badge = (c,t) => `<span class="badge" style="background:${c}22;color:${c};border:1px solid ${c}55">${t}</span>`;
 
 let toastTimer;
-function showToast(msg) {
-  const t = $("toast"); t.textContent = msg;
-  t.classList.add("show");
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => t.classList.remove("show"), 2800);
+function showToast(msg){ const t=$("toast"); t.textContent=msg; t.classList.add("show"); clearTimeout(toastTimer); toastTimer=setTimeout(()=>t.classList.remove("show"),2800); }
+function syncStart(){ $("sync-bar").classList.add("loading"); }
+function syncStop() { $("sync-bar").classList.remove("loading"); }
+
+// ── LOGIN ─────────────────────────────────────────────────
+function checkSession(){ return sessionStorage.getItem("hp_auth")==="1"; }
+function doLogin(){
+  if($("login-pw").value===APP_PASSWORD){
+    sessionStorage.setItem("hp_auth","1");
+    $("login-screen").classList.add("hidden");
+    $("app").classList.add("visible");
+    $("login-error").textContent="";
+    startApp();
+  } else {
+    $("login-error").textContent="Incorrect password. Try again.";
+    const box=document.querySelector(".login-box");
+    box.classList.remove("login-shake"); void box.offsetWidth; box.classList.add("login-shake");
+    $("login-pw").value=""; $("login-pw").focus();
+  }
 }
-function syncStart() { $("sync-bar").classList.add("loading"); }
-function syncStop()  { $("sync-bar").classList.remove("loading"); }
+function doLogout(){
+  sessionStorage.removeItem("hp_auth"); clearInterval(refreshTimer);
+  $("app").classList.remove("visible"); $("login-screen").classList.remove("hidden");
+  $("login-pw").value=""; $("login-error").textContent="";
+}
+function togglePw(){ const i=$("login-pw"); i.type=i.type==="password"?"text":"password"; }
 
-// ── JSONP GET ──────────────────────────────────────────────
-function jsonpFetch() {
-  return new Promise((resolve, reject) => {
-    const cb = "cb_" + Date.now();
-    const script = document.createElement("script");
-    const timeout = setTimeout(() => {
-      delete window[cb];
-      script.remove();
-      reject(new Error("timeout"));
-    }, 12000);
-
-    window[cb] = data => {
-      clearTimeout(timeout);
-      delete window[cb];
-      script.remove();
-      resolve(data);
-    };
-
-    script.src = API + "?callback=" + cb + "&t=" + Date.now();
-    script.onerror = () => { clearTimeout(timeout); delete window[cb]; script.remove(); reject(new Error("script error")); };
-    document.head.appendChild(script);
+// ── JSONP GET ─────────────────────────────────────────────
+function jsonpFetch(extra=""){
+  return new Promise((resolve,reject)=>{
+    const cb="cb_"+Date.now();
+    const s=document.createElement("script");
+    const to=setTimeout(()=>{ delete window[cb]; s.remove(); reject(new Error("timeout")); },12000);
+    window[cb]=data=>{ clearTimeout(to); delete window[cb]; s.remove(); resolve(data); };
+    s.src=API+"?callback="+cb+"&secret="+encodeURIComponent(API_SECRET)+extra+"&t="+Date.now();
+    s.onerror=()=>{ clearTimeout(to); delete window[cb]; s.remove(); reject(new Error("error")); };
+    document.head.appendChild(s);
   });
 }
 
-// ── FORM-POST (no-cors write) ──────────────────────────────
-function formPost(payload) {
-  return new Promise((resolve) => {
-    // We use no-cors fetch for writes — we won't get a response body
-    // but the Apps Script will still execute and write to the sheet.
-    fetch(API, {
-      method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "text/plain" },
-      body: JSON.stringify(payload)
-    }).then(() => resolve({ ok: true })).catch(() => resolve({ ok: false }));
-  });
+function formPost(payload){
+  return fetch(API,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain"},body:JSON.stringify({...payload,secret:API_SECRET})}).catch(()=>{});
 }
 
 // ── LOAD ──────────────────────────────────────────────────
-async function loadProjects() {
+async function loadAll(){
   syncStart();
   try {
-    const data = await jsonpFetch();
-    projects = Array.isArray(data) ? data.filter(p => p.id) : [];
-    syncStop();
-    return true;
-  } catch (e) {
-    syncStop();
-    showToast("⚠️ Could not load — check connection");
-    return false;
-  }
+    const data=await jsonpFetch();
+    if(Array.isArray(data)){
+      projects  = data.filter(r=>r.id&&r._type!=="purchase");
+      purchases = data.filter(r=>r.id&&r._type==="purchase");
+    }
+  } catch(e){ showToast("⚠️ Could not load — check connection"); }
+  syncStop();
 }
 
 // ── SELECTS ───────────────────────────────────────────────
-function populateSelects() {
-  const make = (id, opts) => { const el = $(id); opts.forEach(o => { const op = document.createElement("option"); op.value = o; op.textContent = o; el.appendChild(op); }); };
-  make("f-cat", CATEGORIES); make("f-room-f", ROOMS); make("f-stat-f", STATUSES); make("f-prio-f", PRIORITIES); make("f-assign-f", ASSIGNED);
-  make("f-status", STATUSES); make("f-category", CATEGORIES); make("f-room", ROOMS); make("f-priority", PRIORITIES); make("f-assigned", ASSIGNED);
+function populateSelects(){
+  const make=(id,opts)=>{ const el=$(id); opts.forEach(o=>{ const op=document.createElement("option"); op.value=o; op.textContent=o; el.appendChild(op); }); };
+  make("f-cat",CATEGORIES); make("f-room-f",ROOMS); make("f-stat-f",STATUSES); make("f-prio-f",PRIORITIES); make("f-assign-f",ASSIGNED);
+  make("f-status",STATUSES); make("f-category",CATEGORIES); make("f-room",ROOMS); make("f-priority",PRIORITIES); make("f-assigned",ASSIGNED);
+  make("p-type",PURCHASE_TYPES); make("p-who",ASSIGNED); make("fp-type",PURCHASE_TYPES); make("fp-who",ASSIGNED);
 }
 
-// ── FILTER / SORT ─────────────────────────────────────────
-function filtered() {
-  const search = $("f-search").value.toLowerCase();
-  const st = $("f-status").value, cat = $("f-category").value, rm = $("f-room").value, pr = $("f-priority").value, as = $("f-assigned").value;
-  const sort = $("f-sort").value;
-  let list = projects.filter(p => {
-    if (st && p.status !== st) return false;
-    if (cat && p.category !== cat) return false;
-    if (rm && p.room !== rm) return false;
-    if (pr && p.priority !== pr) return false;
-    if (as && p.assignedTo !== as) return false;
-    if (search && ![p.title, p.notes, p.tags, p.materials].filter(Boolean).join(" ").toLowerCase().includes(search)) return false;
-    return true;
-  });
-  list.sort((a, b) => {
-    if (sort === "priority") return PRIORITIES.indexOf(a.priority) - PRIORITIES.indexOf(b.priority);
-    if (sort === "status")   return STATUSES.indexOf(a.status)   - STATUSES.indexOf(b.status);
-    if (sort === "cost")     return (Number(b.estimatedCost)||0)  - (Number(a.estimatedCost)||0);
-    if (sort === "date")     return (a.targetDate||"").localeCompare(b.targetDate||"");
-    if (sort === "title")    return a.title.localeCompare(b.title);
-    return 0;
-  });
-  return list;
+function refreshProjectDropdown(){
+  const el=$("p-project");
+  el.innerHTML=`<option value="">— Not linked —</option>`;
+  projects.forEach(p=>{ const op=document.createElement("option"); op.value=p.id; op.textContent=p.title; el.appendChild(op); });
+  const fp=$("fp-project");
+  fp.innerHTML=`<option value="">Project: All</option>`;
+  projects.forEach(p=>{ const op=document.createElement("option"); op.value=p.id; op.textContent=p.title; fp.appendChild(op); });
 }
 
-// ── STATS ─────────────────────────────────────────────────
-function renderStats() {
-  const done  = projects.filter(p => p.status === "Done").length;
-  const urgent= projects.filter(p => p.priority === "Urgent" && p.status !== "Done").length;
-  const est   = projects.reduce((s,p) => s + (Number(p.estimatedCost)||0), 0);
-  const act   = projects.reduce((s,p) => s + (Number(p.actualCost)||0), 0);
-  $("stats-bar").innerHTML = [
-    {label:"Projects",  val:projects.length, c:"#3b82f6"},
-    {label:"Completed", val:`${done}/${projects.length}`, c:"#10b981"},
-    {label:"Urgent",    val:urgent, c:"#ef4444"},
-    {label:"Budget Est.",val:fmt(est), c:"#f59e0b"},
-    {label:"Spent",     val:fmt(act), c:"#8b5cf6"},
-  ].map(s => `<div class="stat" style="border-color:${s.c}"><div class="stat-val" style="color:${s.c}">${s.val}</div><div class="stat-label">${s.label}</div></div>`).join("");
-}
-
-// ── VIEW ──────────────────────────────────────────────────
-function setView(v, el) {
-  currentView = v;
-  document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
-  el.classList.add("active");
+// ── VIEW SWITCHING ────────────────────────────────────────
+function setView(v,el){
+  currentView=v;
+  document.querySelectorAll(".tab-btn").forEach(b=>b.classList.remove("active")); el.classList.add("active");
+  $("project-filters").style.display = v==="purchases"?"none":"flex";
+  $("purchase-filters").style.display= v==="purchases"?"flex":"none";
+  $("btn-add-project").style.display = v==="purchases"?"none":"flex";
+  $("btn-add-purchase").style.display= v==="purchases"?"flex":"none";
   render();
 }
 
-function render() {
-  renderStats();
-  const list = filtered();
-  $("f-count").textContent = `${list.length} project${list.length !== 1 ? "s" : ""}`;
-  const main = $("main");
-  if (projects.length === 0) { main.innerHTML = `<div class="empty-state"><div class="e-icon">🏡</div><h3>No projects yet!</h3><p>Tap <strong>+ Add Project</strong> to get started.</p></div>`; return; }
-  if (list.length === 0)     { main.innerHTML = `<div class="empty-state"><div class="e-icon">🔍</div><h3>No matches</h3><p>Try adjusting your filters.</p></div>`; return; }
-  currentView === "board" ? renderBoard(list) : renderList(list);
+// ── STATS ─────────────────────────────────────────────────
+function renderStats(){
+  const done   = projects.filter(p=>p.status==="Done").length;
+  const urgent = projects.filter(p=>p.priority==="Urgent"&&p.status!=="Done").length;
+  const est    = projects.reduce((s,p)=>s+(Number(p.estimatedCost)||0),0);
+  const spent  = projects.reduce((s,p)=>s+(Number(p.actualCost)||0),0);
+  const purTotal = purchases.reduce((s,p)=>s+(Number(p.cost)||0),0);
+  $("stats-bar").innerHTML=[
+    {label:"Projects",   val:projects.length,c:"#3b82f6"},
+    {label:"Completed",  val:`${done}/${projects.length}`,c:"#10b981"},
+    {label:"Urgent",     val:urgent,c:"#ef4444"},
+    {label:"Budget Est.",val:fmt(est),c:"#f59e0b"},
+    {label:"Labor Spent",val:fmt(spent),c:"#8b5cf6"},
+    {label:"Purchases",  val:fmt(purTotal),c:"#f97316"},
+    {label:"Total Spent",val:fmt(spent+purTotal),c:"#2dd4bf"},
+  ].map(s=>`<div class="stat" style="border-color:${s.c}"><div class="stat-val" style="color:${s.c}">${s.val}</div><div class="stat-label">${s.label}</div></div>`).join("");
 }
 
-function renderBoard(list) {
-  $("main").innerHTML = `<div class="board">${STATUSES.map(s => {
-    const items = list.filter(p => p.status === s), c = STATUS_COLORS[s];
-    return `<div>
+// ── RENDER DISPATCHER ─────────────────────────────────────
+function render(){
+  renderStats();
+  if(currentView==="purchases"){ renderPurchases(); return; }
+  const search=$("f-search").value.toLowerCase();
+  const st=$("f-status").value,cat=$("f-category").value,rm=$("f-room").value,pr=$("f-priority").value,as=$("f-assigned").value;
+  const sort=$("f-sort").value;
+  let list=projects.filter(p=>{
+    if(st&&p.status!==st)return false;
+    if(cat&&p.category!==cat)return false;
+    if(rm&&p.room!==rm)return false;
+    if(pr&&p.priority!==pr)return false;
+    if(as&&p.assignedTo!==as)return false;
+    if(search&&![p.title,p.notes,p.tags,p.materials].filter(Boolean).join(" ").toLowerCase().includes(search))return false;
+    return true;
+  });
+  list.sort((a,b)=>{
+    if(sort==="priority")return PRIORITIES.indexOf(a.priority)-PRIORITIES.indexOf(b.priority);
+    if(sort==="status")  return STATUSES.indexOf(a.status)-STATUSES.indexOf(b.status);
+    if(sort==="cost")    return(Number(b.estimatedCost)||0)-(Number(a.estimatedCost)||0);
+    if(sort==="date")    return(a.targetDate||"").localeCompare(b.targetDate||"");
+    if(sort==="title")   return a.title.localeCompare(b.title);
+    return 0;
+  });
+  $("f-count").textContent=`${list.length} project${list.length!==1?"s":""}`;
+  const main=$("main");
+  if(projects.length===0){ main.innerHTML=`<div class="empty-state"><div class="e-icon">🏡</div><h3>No projects yet!</h3><p>Tap <strong>+ Add Project</strong> to get started.</p></div>`; return; }
+  if(list.length===0)    { main.innerHTML=`<div class="empty-state"><div class="e-icon">🔍</div><h3>No matches</h3><p>Try adjusting your filters.</p></div>`; return; }
+  currentView==="board" ? renderBoard(list) : renderList(list);
+}
+
+// ── BOARD ─────────────────────────────────────────────────
+function renderBoard(list){
+  $("main").innerHTML=`<div class="board">${STATUSES.map(s=>{
+    const items=list.filter(p=>p.status===s),c=STATUS_COLORS[s];
+    return`<div>
       <div class="board-col-title" style="border-color:${c}44">
         <span class="col-dot" style="background:${c}"></span>
         <span class="col-label" style="color:${c}">${s}</span>
         <span class="col-count" style="background:${c}22;color:${c}">${items.length}</span>
       </div>
-      <div class="col-cards">${items.length === 0 ? `<div class="no-cards">No projects</div>` : items.map(cardHTML).join("")}</div>
+      <div class="col-cards">${items.length===0?`<div class="no-cards">No projects</div>`:items.map(p=>cardHTML(p)).join("")}</div>
     </div>`;
   }).join("")}</div>`;
-  $("main").querySelectorAll(".card").forEach(el => el.addEventListener("click", () => openModal(el.dataset.id)));
+  $("main").querySelectorAll(".card").forEach(el=>el.addEventListener("click",()=>openModal(el.dataset.id)));
 }
 
-function renderList(list) {
-  $("main").innerHTML = `<div class="list">${list.map(rowHTML).join("")}</div>`;
-  $("main").querySelectorAll(".list-row").forEach(el => el.addEventListener("click", () => openModal(el.dataset.id)));
+function renderList(list){
+  $("main").innerHTML=`<div class="list">${list.map(rowHTML).join("")}</div>`;
+  $("main").querySelectorAll(".list-row").forEach(el=>el.addEventListener("click",()=>openModal(el.dataset.id)));
 }
 
-function cardHTML(p) {
-  const pc = PRIORITY_COLORS[p.priority] || "#64748b";
-  const tags = (p.tags||"").split(",").map(t=>t.trim()).filter(Boolean);
-  return `<div class="card" data-id="${p.id}" style="border-left-color:${pc}">
+function cardHTML(p){
+  const pc=PRIORITY_COLORS[p.priority]||"#64748b";
+  const tags=(p.tags||"").split(",").map(t=>t.trim()).filter(Boolean);
+  const linkedPurchases=purchases.filter(x=>String(x.projectId)===String(p.id));
+  const purSum=linkedPurchases.reduce((s,x)=>s+(Number(x.cost)||0),0);
+  return`<div class="card" data-id="${p.id}" style="border-left-color:${pc}">
     <div class="card-header"><span class="card-icon">${CAT_ICONS[p.category]||"📦"}</span><span class="card-title">${p.title}</span></div>
     <div class="card-badges">${badge(pc,p.priority)}${badge("#3b82f6",p.room)}${p.assignedTo?badge("#8b5cf6",p.assignedTo):""}</div>
     <div class="card-footer"><span>${p.category}</span><span class="card-cost">${fmt(p.estimatedCost)}</span></div>
-    ${p.targetDate ? `<div class="card-date">🗓 ${fmtDate(p.targetDate)}</div>` : ""}
-    ${tags.length ? `<div class="card-tags">${tags.map(t=>`<span class="tag">#${t}</span>`).join("")}</div>` : ""}
+    ${linkedPurchases.length?`<div class="card-purchases">🛒 ${linkedPurchases.length} purchase${linkedPurchases.length!==1?"s":""} · ${fmt(purSum)}</div>`:""}
+    ${p.targetDate?`<div class="card-date">🗓 ${fmtDate(p.targetDate)}</div>`:""}
+    ${tags.length?`<div class="card-tags">${tags.map(t=>`<span class="tag">#${t}</span>`).join("")}</div>`:""}
   </div>`;
 }
 
-function rowHTML(p) {
-  const pc = PRIORITY_COLORS[p.priority]||"#64748b", sc = STATUS_COLORS[p.status]||"#94a3b8";
-  return `<div class="list-row" data-id="${p.id}" style="border-left-color:${pc}">
+function rowHTML(p){
+  const pc=PRIORITY_COLORS[p.priority]||"#64748b",sc=STATUS_COLORS[p.status]||"#94a3b8";
+  return`<div class="list-row" data-id="${p.id}" style="border-left-color:${pc}">
     <span class="list-icon">${CAT_ICONS[p.category]||"📦"}</span>
     <div class="list-info"><div class="list-title">${p.title}</div><div class="list-sub">${p.room} · ${p.category}</div></div>
     <div class="list-meta">
@@ -419,101 +595,192 @@ function rowHTML(p) {
   </div>`;
 }
 
-// ── MODAL ─────────────────────────────────────────────────
-function openModal(id) {
-  currentId = id || null;
-  const p = id ? projects.find(x => String(x.id) === String(id)) : null;
-  $("modal-title").textContent = p ? "Edit Project" : "New Project";
-  $("btn-delete").style.display = p ? "block" : "none";
-  $("f-title").value      = p?.title        || "";
-  $("f-cat").value        = p?.category     || CATEGORIES[0];
-  $("f-room-f").value     = p?.room         || ROOMS[0];
-  $("f-stat-f").value     = p?.status       || STATUSES[0];
-  $("f-prio-f").value     = p?.priority     || "Medium";
-  $("f-assign-f").value   = p?.assignedTo   || "Both";
-  $("f-est").value        = p?.estimatedCost|| "";
-  $("f-act").value        = p?.actualCost   || "";
-  $("f-tdate").value      = p?.targetDate   || "";
-  $("f-cdate").value      = p?.completedDate|| "";
-  $("f-materials").value  = p?.materials    || "";
-  $("f-contractor").value = p?.contractor   || "";
-  $("f-tags").value       = p?.tags         || "";
-  $("f-notes").value      = p?.notes        || "";
+// ── PURCHASES VIEW ────────────────────────────────────────
+function renderPurchases(){
+  renderStats();
+  const search=$("fp-search").value.toLowerCase();
+  const type=$("fp-type").value, who=$("fp-who").value, proj=$("fp-project").value;
+  let list=purchases.filter(p=>{
+    if(type&&p.type!==type)return false;
+    if(who&&p.who!==who)return false;
+    if(proj&&String(p.projectId)!==proj)return false;
+    if(search&&![p.name,p.store,p.notes].filter(Boolean).join(" ").toLowerCase().includes(search))return false;
+    return true;
+  }).sort((a,b)=>(b.date||"").localeCompare(a.date||""));
+  $("fp-count").textContent=`${list.length} item${list.length!==1?"s":""}`;
+  const total=list.reduce((s,p)=>s+(Number(p.cost)||0),0);
+  const main=$("main");
+  if(purchases.length===0){
+    main.innerHTML=`<div class="purchases-wrap"><div class="purchases-empty"><div class="e-icon">🛒</div><p style="color:var(--mid);font-size:14px">No purchases logged yet.<br>Tap <strong>🛒 Add Purchase</strong> to track tools, hardware &amp; supplies.</p></div></div>`;
+    return;
+  }
+  if(list.length===0){
+    main.innerHTML=`<div class="purchases-wrap"><div class="purchases-empty"><div class="e-icon">🔍</div><p style="color:var(--mid);font-size:14px">No purchases match your filters.</p></div></div>`;
+    return;
+  }
+  main.innerHTML=`<div class="purchases-wrap">
+    <div class="purchases-header">
+      <span>Item</span>
+      <span class="ph-project">Project</span>
+      <span class="ph-who">Who</span>
+      <span>Date</span>
+      <span>Amount</span>
+      <span></span>
+    </div>
+    ${list.map(p=>{
+      const proj=projects.find(x=>String(x.id)===String(p.projectId));
+      return`<div class="purchase-row" data-pid="${p.id}">
+        <div><div class="pr-name">${PURCHASE_ICONS[p.type]||"📦"} ${p.name}</div><div class="pr-sub">${p.type}${p.store?" · "+p.store:""}</div></div>
+        <div class="pr-cell pr-project" style="font-size:11px;color:var(--muted)">${proj?proj.title:"—"}</div>
+        <div class="pr-cell pr-who">${p.who||"—"}</div>
+        <div class="pr-cell">${fmtDate(p.date)||"—"}</div>
+        <div class="pr-cost">${fmt(p.cost)}</div>
+        <button class="pr-edit">✏️</button>
+      </div>`;
+    }).join("")}
+    <div class="purchases-footer">
+      <span style="color:var(--muted);font-size:12px">${list.length} item${list.length!==1?"s":""}</span>
+      <span class="purchases-total">Total: ${fmt(total)}</span>
+    </div>
+  </div>`;
+  main.querySelectorAll(".purchase-row").forEach(el=>{
+    el.addEventListener("click",()=>openPurchaseModal(el.dataset.pid));
+    el.querySelector(".pr-edit").addEventListener("click",e=>{ e.stopPropagation(); openPurchaseModal(el.dataset.pid); });
+  });
+}
+
+// ── PROJECT MODAL ─────────────────────────────────────────
+function openModal(id){
+  currentId=id||null;
+  const p=id?projects.find(x=>String(x.id)===String(id)):null;
+  $("modal-title").textContent=p?"Edit Project":"New Project";
+  $("btn-delete").style.display=p?"block":"none";
+  $("f-title").value=$("f-title").defaultValue; // reset
+  $("f-title").value      =p?.title        ||"";
+  $("f-cat").value        =p?.category     ||CATEGORIES[0];
+  $("f-room-f").value     =p?.room         ||ROOMS[0];
+  $("f-stat-f").value     =p?.status       ||STATUSES[0];
+  $("f-prio-f").value     =p?.priority     ||"Medium";
+  $("f-assign-f").value   =p?.assignedTo   ||"Both";
+  $("f-est").value        =p?.estimatedCost||"";
+  $("f-act").value        =p?.actualCost   ||"";
+  $("f-tdate").value      =p?.targetDate   ||"";
+  $("f-cdate").value      =p?.completedDate||"";
+  $("f-materials").value  =p?.materials    ||"";
+  $("f-contractor").value =p?.contractor   ||"";
+  $("f-tags").value       =p?.tags         ||"";
+  $("f-notes").value      =p?.notes        ||"";
   $("modal-overlay").classList.add("open");
 }
 function closeModal()    { $("modal-overlay").classList.remove("open"); }
-function overlayClick(e) { if (e.target === $("modal-overlay")) closeModal(); }
+function overlayClick(e) { if(e.target===$("modal-overlay"))closeModal(); }
 
-async function saveProject() {
-  const title = $("f-title").value.trim();
-  if (!title) { alert("Please add a project title."); return; }
-  const p = {
-    id: currentId || Date.now(), title,
-    category:      $("f-cat").value,
-    room:          $("f-room-f").value,
-    status:        $("f-stat-f").value,
-    priority:      $("f-prio-f").value,
-    assignedTo:    $("f-assign-f").value,
-    estimatedCost: $("f-est").value,
-    actualCost:    $("f-act").value,
-    targetDate:    $("f-tdate").value,
-    completedDate: $("f-cdate").value,
-    materials:     $("f-materials").value,
-    contractor:    $("f-contractor").value,
-    tags:          $("f-tags").value,
-    notes:         $("f-notes").value,
+async function saveProject(){
+  const title=$("f-title").value.trim();
+  if(!title){ alert("Please add a project title."); return; }
+  const p={
+    id:currentId||Date.now(), title, _type:"project",
+    category:$("f-cat").value, room:$("f-room-f").value,
+    status:$("f-stat-f").value, priority:$("f-prio-f").value,
+    assignedTo:$("f-assign-f").value,
+    estimatedCost:$("f-est").value, actualCost:$("f-act").value,
+    targetDate:$("f-tdate").value, completedDate:$("f-cdate").value,
+    materials:$("f-materials").value, contractor:$("f-contractor").value,
+    tags:$("f-tags").value, notes:$("f-notes").value,
   };
   closeModal();
-  // Optimistic update
-  if (currentId) { const i = projects.findIndex(x => String(x.id) === String(currentId)); if (i >= 0) projects[i] = p; else projects.push(p); }
+  if(currentId){ const i=projects.findIndex(x=>String(x.id)===String(currentId)); if(i>=0)projects[i]=p; else projects.push(p); }
   else projects.push(p);
-  render();
-  showToast("💾 Saving…");
-  await formPost({ action: "save", project: p });
-  showToast("✅ Saved!");
-  // Reload from sheet after a short delay to confirm
-  setTimeout(async () => { await loadProjects(); render(); }, 2000);
+  render(); showToast("💾 Saving…");
+  await formPost({action:"save",project:p});
+  showToast("✅ Project saved!");
+  setTimeout(async()=>{ await loadAll(); refreshProjectDropdown(); render(); },2000);
 }
 
-async function deleteProject() {
-  if (!currentId) return;
-  if (!confirm("Delete this project?")) return;
+async function deleteProject(){
+  if(!currentId)return;
+  if(!confirm("Delete this project?"))return;
   closeModal();
-  projects = projects.filter(p => String(p.id) !== String(currentId));
+  projects=projects.filter(p=>String(p.id)!==String(currentId));
   render();
-  await formPost({ action: "delete", id: String(currentId) });
-  showToast("🗑 Deleted");
-  setTimeout(async () => { await loadProjects(); render(); }, 2000);
+  await formPost({action:"delete",id:String(currentId)});
+  showToast("🗑 Project deleted");
+  setTimeout(async()=>{ await loadAll(); refreshProjectDropdown(); render(); },2000);
 }
 
-// ── AUTO-REFRESH every 30s ────────────────────────────────
-setInterval(async () => { await loadProjects(); render(); }, 30000);
+// ── PURCHASE MODAL ────────────────────────────────────────
+function openPurchaseModal(id){
+  currentPurchaseId=id||null;
+  const p=id?purchases.find(x=>String(x.id)===String(id)):null;
+  $("purchase-modal-title").textContent=p?"Edit Purchase":"Log Purchase";
+  $("p-btn-delete").style.display=p?"block":"none";
+  $("p-name").value  =p?.name ||"";
+  $("p-type").value  =p?.type ||PURCHASE_TYPES[0];
+  $("p-who").value   =p?.who  ||"Both";
+  $("p-cost").value  =p?.cost ||"";
+  $("p-date").value  =p?.date ||new Date().toISOString().split("T")[0];
+  $("p-project").value=p?.projectId||"";
+  $("p-store").value =p?.store||"";
+  $("p-notes").value =p?.notes||"";
+  $("purchase-overlay").classList.add("open");
+}
+function closePurchaseModal()      { $("purchase-overlay").classList.remove("open"); }
+function purchaseOverlayClick(e)   { if(e.target===$("purchase-overlay"))closePurchaseModal(); }
 
-// ── INIT ──────────────────────────────────────────────────
-async function init() {
+async function savePurchase(){
+  const name=$("p-name").value.trim();
+  const cost=$("p-cost").value;
+  if(!name){ alert("Please add an item name."); return; }
+  if(!cost){ alert("Please enter the amount paid."); return; }
+  const p={
+    id:currentPurchaseId||Date.now(), _type:"purchase",
+    name, type:$("p-type").value, who:$("p-who").value,
+    cost, date:$("p-date").value, projectId:$("p-project").value,
+    store:$("p-store").value, notes:$("p-notes").value,
+  };
+  closePurchaseModal();
+  if(currentPurchaseId){ const i=purchases.findIndex(x=>String(x.id)===String(currentPurchaseId)); if(i>=0)purchases[i]=p; else purchases.push(p); }
+  else purchases.push(p);
+  render(); showToast("💾 Saving…");
+  await formPost({action:"save",project:p});
+  showToast("✅ Purchase saved!");
+  setTimeout(async()=>{ await loadAll(); render(); },2000);
+}
+
+async function deletePurchase(){
+  if(!currentPurchaseId)return;
+  if(!confirm("Delete this purchase?"))return;
+  closePurchaseModal();
+  purchases=purchases.filter(p=>String(p.id)!==String(currentPurchaseId));
+  render();
+  await formPost({action:"delete",id:String(currentPurchaseId)});
+  showToast("🗑 Purchase deleted");
+  setTimeout(async()=>{ await loadAll(); render(); },2000);
+}
+
+// ── START ─────────────────────────────────────────────────
+async function startApp(){
   populateSelects();
-  // Init sheet headers via no-cors post
-  await formPost({ action: "init" });
-  // Load existing projects via JSONP
-  await loadProjects();
+  await formPost({action:"init"});
+  await loadAll();
+  refreshProjectDropdown();
   $("loader").classList.remove("on");
   render();
+  clearInterval(refreshTimer);
+  refreshTimer=setInterval(async()=>{ await loadAll(); render(); },30000);
 }
 
-init();
+// ── BOOT ─────────────────────────────────────────────────
+window.addEventListener("load",()=>{
+  if(checkSession()){
+    $("login-screen").classList.add("hidden");
+    $("app").classList.add("visible");
+    startApp();
+  } else {
+    $("loader").classList.remove("on");
+    setTimeout(()=>$("login-pw").focus(),100);
+  }
+});
 </script>
-
-<!-- Update Apps Script to support JSONP callback param:
-     In your doGet(), wrap the response like this:
-     
-     function doGet(e) {
-       const callback = e.parameter.callback;
-       ...build your rows array...
-       const json = JSON.stringify(rows);
-       return ContentService
-         .createTextOutput(callback ? callback + "(" + json + ")" : json)
-         .setMimeType(callback ? ContentService.MimeType.JAVASCRIPT : ContentService.MimeType.JSON);
-     }
--->
 </body>
 </html>
